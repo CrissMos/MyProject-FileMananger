@@ -54,18 +54,22 @@
     <None Remove="ClientApp\src\app\models\asset.model.ts" />
     <None Remove="ClientApp\src\app\models\assetCategory.enum.ts" />
     <None Remove="ClientApp\src\app\models\folder.model.ts" />
+    <None Remove="ClientApp\src\app\models\variant.model.ts" />
     <None Remove="ClientApp\src\app\models\variantType.enum.ts" />
     <None Remove="ClientApp\src\app\services\asset.service.ts" />
     <None Remove="ClientApp\src\app\services\folder.service.ts" />
+    <None Remove="ClientApp\src\app\services\variant.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\asset.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\assetCategory.enum.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\folder.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\variant.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\variantType.enum.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\asset.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\folder.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\variant.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,4 +1,5 @@
-﻿using MyProject.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MyProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace MyProject.Services
             _context = context;
         }
 
-        public IEnumerable<Variant> GetAssets()
+        public IEnumerable<Variant> GetVariantsByAssetId(Guid AssetId)
         {
-            return _context.Variants.Where(v => v.Deleted == null).ToList();
+            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Deleted == null).ToList();
         }
 
         public bool Create(Version version)
