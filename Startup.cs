@@ -37,6 +37,7 @@ namespace MyProject
             services.AddHttpClient();
 
             services.AddTransient<IAssetRepository, AssetRepository>();
+            services.AddTransient<IFolderRepository, FolderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

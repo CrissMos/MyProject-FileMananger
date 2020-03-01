@@ -1,7 +1,8 @@
 import { AssetCategory } from "./assetCategory.enum"
 
-export class Asset {
+export interface Asset {
     id?: null;
     category: AssetCategory;
     name: string;
+    folderId: string;
 }

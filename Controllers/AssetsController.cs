@@ -55,6 +55,7 @@ namespace MyProject.Controllers
 
             //return Ok(asset);
         }
+
         [HttpGet("get-assets")]
         public IActionResult GetAssets()
         {

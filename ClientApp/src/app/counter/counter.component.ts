@@ -12,6 +12,7 @@ export class CounterComponent {
         id: null,
         name: "",
         category: AssetCategory.Image,
+        folderId: null
     }
 
     public currentCount = 0;
@@ -34,7 +35,7 @@ export class CounterComponent {
         this.assetService.addAsset(this.asset)
             .subscribe(data => {
                 console.log(data);
-                //this.getAssets();
+                this.getAssets();
             });
     }
 
