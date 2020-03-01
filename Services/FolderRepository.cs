@@ -17,7 +17,7 @@ namespace MyProject.Services
 
         public IEnumerable<Folder> GetFolders()
         {
-            return _context.Folders.Where(folder => folder.Deleted == null).ToList();
+            return _context.Folders.Where(folder => folder.ParentId==null && folder.Deleted == null).ToList();
         }
 
         public bool Create(Folder folder)

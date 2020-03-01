@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace MyProject.Services
 {
-    public class AssetRepository: IAssetRepository
-    {
+	public class VariantRepository : IVariantRepository
+	{
         protected ModelContext _context { get; set; }
-        
-        public AssetRepository(ModelContext context)
+
+        public VariantRepository(ModelContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<Asset> GetAssets()
+        public IEnumerable<Variant> GetAssets()
         {
-            return _context.Assets.Where(a => a.FolderId == null && a.Deleted == null).ToList();
+            return _context.Variants.Where(v => v.Deleted == null).ToList();
         }
 
-        public bool Create(Asset asset)
+        public bool Create(Version version)
         {
             try
             {
-                _context.Add(asset);
+                _context.Add(version);
                 _context.SaveChanges();
 
                 return true;
@@ -35,9 +35,4 @@ namespace MyProject.Services
             }
         }
     }
-
-    //public interface IAssetRepository
-    //{
-    //    bool Create(Asset asset);
-    //}
 }

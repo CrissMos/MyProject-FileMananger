@@ -13,8 +13,6 @@ namespace MyProject.Models.ApiModels
 
 		public string Name { get; set; }
 
-		//public ICollection<ApiAsset> ApiAssets { get; set; }
-
 		public static explicit operator ApiFolder(Folder folder)
 		{
 			ApiFolder apiFolder = new ApiFolder();

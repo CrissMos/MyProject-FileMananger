@@ -15,6 +15,7 @@ namespace MyProject.Models
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Folder> Folders { get; set; }
+        public DbSet<Variant> Variants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

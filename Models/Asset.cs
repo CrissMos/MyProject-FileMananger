@@ -22,6 +22,8 @@ namespace MyProject.Models
 
         public Guid? FolderId { get; set; }
 
+        public ICollection<Variant> Variants { get; set; }
+
         public static explicit operator Asset(ApiAsset apiAsset)
         {
             Asset asset = new Asset();
