@@ -28,7 +28,7 @@ export class FolderService {
 
     addFolder(folder: Folder): Observable<Folder> {
         folder.id = null;
-        return this.http.post<any>(this.baseUrl + "/create", folder, this.httpOptions)
+        return this.http.post<any>(this.baseUrl + "/create-folder", folder, this.httpOptions)
             .pipe(
                 tap(data => console.log(data)),
                 catchError(this.handleError)

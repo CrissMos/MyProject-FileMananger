@@ -23,8 +23,8 @@ namespace MyProject.Controllers
             _folderRepository = folderRepository;
         }
 
-        [HttpPost("create")]
-        public IActionResult CreateAsset(ApiFolder apiFolder)
+        [HttpPost("create-folder")]
+        public IActionResult CreateFolder(ApiFolder apiFolder)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace MyProject.Controllers
         }
 
         [HttpGet("get-folders")]
-        public IActionResult GetAssets()
+        public IActionResult GetFolders()
         {
             var folders = _folderRepository.GetFolders();
 

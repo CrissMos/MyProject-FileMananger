@@ -5,15 +5,23 @@
             <input #assetName />
             <button (click)="addAsset(assetName.value)">Add Asset</button>
         </div>
-
+        <div class="row">
+            <label>Folder Name</label>
+            <input #folderName />
+            <button (click)="addFolder(folderName.value)">Add Folder</button>
+        </div>
+        <div class="container" *ngIf="folders">
+            <div class="row" *ngFor="let f of folders">
+                <div class="col">{{f.name}}</div>
+            </div>
+        </div>
         <div class="container" *ngIf="assets">
             <div class="row" *ngFor="let a of assets">
-                <div class="col">{{a.id}}</div>
                 <div class="col">{{a.name}}</div>
-                <div class="col">{{a.category}}</div>
             </div>
         </div>
     </div>
     <div class="col-9"></div>
+    <router-outlet></router-outlet>
 </div>
 

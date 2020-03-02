@@ -21,7 +21,7 @@ namespace MyProject.Models
 			Folder folder = new Folder();
 
 			folder.Name = apiFolder.Name;
-			folder.ParentId = apiFolder.ParentId;
+			//folder.ParentId = apiFolder.ParentId;
 
 			return folder;
 		}

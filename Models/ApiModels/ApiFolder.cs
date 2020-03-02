@@ -7,7 +7,7 @@ namespace MyProject.Models.ApiModels
 {
 	public class ApiFolder
 	{
-		public Guid Id { get; set; }
+		public Guid? Id { get; set; }
 
 		public string ParentId { get; set; }
 

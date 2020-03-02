@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Asset } from '../models/asset.model';
 import { AssetCategory } from '../models/assetCategory.enum';
 import { AssetService } from '../Services/asset.service';
+import { Folder } from '../models/folder.model';
+import { FolderService } from '../services/folder.service';
 
 @Component({
     selector: 'app-home',
@@ -16,18 +18,21 @@ export class HomeComponent {
         folderId: null
     }
 
-    public currentCount = 0;
+    folder: Folder = {
+        id: null,
+        parentId: null,
+        name: ""
+    }
+
     assets: Asset[] = [];
+    folders: Folder[] = [];
 
     constructor(
-        private assetService: AssetService) { }
+        private assetService: AssetService,
+        private folderService: FolderService) { }
 
     ngOnInit() {
         this.getAssets();
-    }
-
-    public incrementCounter() {
-        this.currentCount++;
     }
 
     public addAsset(name: string): void {
@@ -43,6 +48,23 @@ export class HomeComponent {
     public getAssets() {
         this.assetService.getAssets().subscribe(data => {
             this.assets = data;
+            console.log(this.assets);
+        });
+    }
+
+    public addFolder(name: string): void {
+        if (!name) { return; }
+        this.folder.name = name;
+        this.folderService.addFolder(this.folder)
+            .subscribe(data => {
+                console.log(data);
+                this.getFolders();
+            });
+    }
+
+    public getFolders() {
+        this.folderService.getFolders().subscribe(data => {
+            this.folders = data;
             console.log(this.assets);
         });
     }

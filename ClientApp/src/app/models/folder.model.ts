@@ -1,5 +1,5 @@
 export interface Folder {
 	id?: null;
-	parentId: string;
+	parentId?: string;
 	name: string;
 }
