@@ -10,6 +10,8 @@ namespace MyProject.Services
 	{
 		IEnumerable<Folder> GetFolders();
 
+		Folder GetFolderByParentId(Guid ParentId);
+
 		bool Create(Folder folder);
 	}
 }

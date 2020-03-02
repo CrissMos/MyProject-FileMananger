@@ -20,6 +20,11 @@ namespace MyProject.Services
             return _context.Folders.Where(folder => folder.ParentId==null && folder.Deleted == null).ToList();
         }
 
+        public Folder GetFolderByParentId(Guid ParentId)
+        {
+            return _context.Folders.Where(f => f.Id == ParentId && f.Deleted == null).FirstOrDefault();
+        }
+
         public bool Create(Folder folder)
         {
             try

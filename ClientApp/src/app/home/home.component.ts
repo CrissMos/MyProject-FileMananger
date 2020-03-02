@@ -27,11 +27,15 @@ export class HomeComponent {
     assets: Asset[] = [];
     folders: Folder[] = [];
 
+    parentId: string = null;
+
     constructor(
         private assetService: AssetService,
-        private folderService: FolderService) { }
+        private folderService: FolderService
+    ) { }
 
     ngOnInit() {
+        this.getFolders();
         this.getAssets();
     }
 
@@ -66,6 +70,11 @@ export class HomeComponent {
         this.folderService.getFolders().subscribe(data => {
             this.folders = data;
             console.log(this.assets);
+            this.parentId = this.folders[0].id
         });
+    }
+
+    public onFolder(folder: Folder) {
+
     }
 }

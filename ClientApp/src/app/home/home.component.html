@@ -1,18 +1,33 @@
 <div class="row">
-    <div class="col-3">
+	<div class="col-3"></div>
+    <div class="col-6">
         <div class="row">
-            <label>Img Name</label>
-            <input #assetName />
-            <button (click)="addAsset(assetName.value)">Add Asset</button>
+            <div class="col-3">
+                <label>Img Name</label>
+            </div>
+            <div class="col-5">
+                <input class="form-control" #assetName />
+            </div>
+            <div class="col-4">
+                <button (click)="addAsset(assetName.value)">Add Asset</button>
+            </div>
         </div>
         <div class="row">
-            <label>Folder Name</label>
-            <input #folderName />
-            <button (click)="addFolder(folderName.value)">Add Folder</button>
+            <div class="col-3">
+                <label>Folder Name</label>
+            </div>
+            <div class="col-5">
+                <input class="form-control" #folderName />
+            </div>
+            <div class="col-4">
+                <button (click)="addFolder(folderName.value)">Add Folder</button>
+            </div>
         </div>
         <div class="container" *ngIf="folders">
             <div class="row" *ngFor="let f of folders">
-                <div class="col">{{f.name}}</div>
+                <div class="col">
+                    <a class="btn btn-white-view" [routerLink]="[ '/folder-detail',f.id]">{{f.name}}</a>
+                </div>
             </div>
         </div>
         <div class="container" *ngIf="assets">
@@ -21,7 +36,6 @@
             </div>
         </div>
     </div>
-    <div class="col-9"></div>
-    <router-outlet></router-outlet>
+	<div class="col-3"></div>
 </div>
 

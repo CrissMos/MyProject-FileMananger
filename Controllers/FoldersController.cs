@@ -57,5 +57,24 @@ namespace MyProject.Controllers
 
             return Ok(apiFolders);
         }
+
+        [HttpGet("by-parentId/{parentId}")]
+        public IActionResult GetFolderByParentId(Guid parentId)
+        {
+            if (parentId == null)
+            {
+                return BadRequest();
+            }
+
+            var folder = _folderRepository.GetFolderByParentId(parentId);
+
+            if (folder==null)
+            {
+                return NotFound();
+            }
+
+            var apiFolder = (ApiFolder)folder;
+            return Ok(apiFolder);
+        }
     }
 }
