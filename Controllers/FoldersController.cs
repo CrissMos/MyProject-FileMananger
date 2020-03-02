@@ -43,10 +43,10 @@ namespace MyProject.Controllers
             return Ok(folderDb);
         }
 
-        [HttpGet("get-folders")]
+        [HttpGet("get-root-folders")]
         public IActionResult GetFolders()
         {
-            var folders = _folderRepository.GetFolders();
+            var folders = _folderRepository.GetRootFolders();
 
             var apiFolders = folders.Select(f => (ApiFolder)f);
 
@@ -58,15 +58,15 @@ namespace MyProject.Controllers
             return Ok(apiFolders);
         }
 
-        [HttpGet("by-parentId/{parentId}")]
-        public IActionResult GetFolderByParentId(Guid parentId)
+        [HttpGet("by-parentId/{Id}")]
+        public IActionResult GetBytId(Guid Id)
         {
-            if (parentId == null)
+            if (Id == null)
             {
                 return BadRequest();
             }
 
-            var folder = _folderRepository.GetFolderByParentId(parentId);
+            var folder = _folderRepository.GetFolderById(Id);
 
             if (folder==null)
             {

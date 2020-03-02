@@ -15,14 +15,19 @@ namespace MyProject.Services
             _context = context;
         }
 
-        public IEnumerable<Folder> GetFolders()
+        public IEnumerable<Folder> GetRootFolders()
         {
             return _context.Folders.Where(folder => folder.ParentId==null && folder.Deleted == null).ToList();
         }
 
-        public Folder GetFolderByParentId(Guid ParentId)
+        public Folder GetFolderById(Guid Id)
         {
-            return _context.Folders.Where(f => f.Id == ParentId && f.Deleted == null).FirstOrDefault();
+            return _context.Folders.Where(f => f.Id == Id && f.Deleted == null).FirstOrDefault();
+        }
+
+        public ICollection<Folder> GetByParentId(string ParentId)
+        {
+            return _context.Folders.Where(f => f.ParentId == ParentId && f.Deleted == null).ToList();
         }
 
         public bool Create(Folder folder)

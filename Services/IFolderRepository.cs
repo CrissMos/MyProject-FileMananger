@@ -8,9 +8,11 @@ namespace MyProject.Services
 {
 	public interface IFolderRepository
 	{
-		IEnumerable<Folder> GetFolders();
+		IEnumerable<Folder> GetRootFolders();
 
-		Folder GetFolderByParentId(Guid ParentId);
+		Folder GetFolderById(Guid Id);
+
+		ICollection<Folder> GetByParentId(string ParentId);
 
 		bool Create(Folder folder);
 	}

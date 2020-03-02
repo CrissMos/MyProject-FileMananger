@@ -36,7 +36,7 @@ export class FolderService {
     }
 
     getFolders(): Observable<any> {
-        return this.http.get<Folder[]>(this.baseUrl + "/get-folders").pipe(
+        return this.http.get<Folder[]>(this.baseUrl + "/get-root-folders").pipe(
             tap(data => console.log(data)),
             catchError(this.handleError)
         );
