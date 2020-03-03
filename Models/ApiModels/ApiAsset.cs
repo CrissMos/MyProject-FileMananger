@@ -17,6 +17,8 @@ namespace MyProject.Models.ApiModels
 
         public string FolderId { get; set; }
 
+        public string VariantToDisplayLink { get; set; }
+
         public static explicit operator ApiAsset(Asset asset)
         {
             ApiAsset apiAsset = new ApiAsset();

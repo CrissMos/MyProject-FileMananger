@@ -20,6 +20,11 @@ namespace MyProject.Services
             return _context.Assets.Where(a => a.FolderId == null && a.Deleted == null).ToList();
         }
 
+        public IEnumerable<Asset> GetAssetsByFolderId(Guid folderId)
+        {
+            return _context.Assets.Where(a => a.FolderId == folderId && a.Deleted == null).ToList();
+        }
+
         public bool Create(Asset asset)
         {
             try

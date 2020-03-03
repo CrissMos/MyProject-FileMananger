@@ -21,6 +21,11 @@ namespace MyProject.Services
             return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Deleted == null).ToList();
         }
 
+        public Variant GetThumbnailByAssetId(Guid AssetId)
+        {
+            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == Enums.VariantType.Thumbnail && v.Deleted == null).FirstOrDefault();
+        }
+
         public bool Create(Version version)
         {
             try

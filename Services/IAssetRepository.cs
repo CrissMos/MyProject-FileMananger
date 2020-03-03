@@ -9,6 +9,8 @@ namespace MyProject.Services
     public interface IAssetRepository
     {
         IEnumerable<Asset> GetAssets();
+
+        IEnumerable<Asset> GetAssetsByFolderId(Guid folderId);
         bool Create(Asset asset);
     }
 }

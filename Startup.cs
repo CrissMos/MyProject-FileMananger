@@ -38,6 +38,7 @@ namespace MyProject
 
             services.AddTransient<IAssetRepository, AssetRepository>();
             services.AddTransient<IFolderRepository, FolderRepository>();
+            services.AddTransient<IVariantRepository, VariantRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

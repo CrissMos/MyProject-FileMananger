@@ -58,7 +58,7 @@ namespace MyProject.Controllers
             return Ok(apiFolders);
         }
 
-        [HttpGet("by-parentId/{Id}")]
+        [HttpGet("byId/{Id}")]
         public IActionResult GetBytId(Guid Id)
         {
             if (Id == null)
