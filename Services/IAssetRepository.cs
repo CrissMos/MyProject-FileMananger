@@ -11,6 +11,6 @@ namespace MyProject.Services
         IEnumerable<Asset> GetAssets();
 
         IEnumerable<Asset> GetAssetsByFolderId(Guid folderId);
-        bool Create(Asset asset);
+        Asset Create(Asset asset);
     }
 }

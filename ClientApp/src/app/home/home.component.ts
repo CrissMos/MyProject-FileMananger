@@ -15,7 +15,8 @@ export class HomeComponent {
         id: null,
         name: "",
         category: AssetCategory.Image,
-        folderId: null
+        folderId: null,
+        variantToDisplayLink: ""
     }
 
     folder: Folder = {

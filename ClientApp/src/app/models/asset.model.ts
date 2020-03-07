@@ -5,4 +5,5 @@ export interface Asset {
     category: AssetCategory;
     name: string;
     folderId: string;
+    variantToDisplayLink: string;
 }

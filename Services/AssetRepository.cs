@@ -25,18 +25,18 @@ namespace MyProject.Services
             return _context.Assets.Where(a => a.FolderId == folderId && a.Deleted == null).ToList();
         }
 
-        public bool Create(Asset asset)
+        public Asset Create(Asset asset)
         {
             try
             {
                 _context.Add(asset);
                 _context.SaveChanges();
 
-                return true;
+                return asset;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
     }

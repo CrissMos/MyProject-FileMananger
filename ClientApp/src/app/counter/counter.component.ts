@@ -12,7 +12,8 @@ export class CounterComponent {
         id: null,
         name: "",
         category: AssetCategory.Image,
-        folderId: null
+        folderId: null,
+        variantToDisplayLink: ""
     }
 
     public currentCount = 0;

@@ -26,11 +26,11 @@ namespace MyProject.Services
             return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == Enums.VariantType.Thumbnail && v.Deleted == null).FirstOrDefault();
         }
 
-        public bool Create(Version version)
+        public bool Create(Variant variant)
         {
             try
             {
-                _context.Add(version);
+                _context.Add(variant);
                 _context.SaveChanges();
 
                 return true;

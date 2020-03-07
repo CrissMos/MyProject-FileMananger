@@ -12,6 +12,6 @@ namespace MyProject.Services
 
 		Variant GetThumbnailByAssetId(Guid AssetId);
 
-		bool Create(Version version);
+		bool Create(Variant variant);
 	}
 }

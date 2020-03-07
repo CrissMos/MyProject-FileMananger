@@ -41,14 +41,38 @@ namespace MyProject.Controllers
 
             var asset = (Asset)apiAsset;
 
+            if (apiAsset.FolderId != null)
+            {
+            asset.FolderId = new Guid(apiAsset.FolderId);
+            }
+
             var assetDb = _assetRepository.Create(asset);
 
-            if (!assetDb)
+            if (assetDb==null)
             {
                 return BadRequest();
             }
 
-            return Ok(assetDb);
+            List<Enums.VariantType> types = new List<Enums.VariantType>();
+
+            foreach(Enums.VariantType type in Enum.GetValues(typeof(Enums.VariantType)))
+            {
+                var date = assetDb.Created.ToShortDateString();
+
+                Variant variant = new Variant();
+                variant.AssetId = assetDb.Id;
+                variant.Type = type;
+                variant.Link = date + assetDb.Name + type;
+
+                var variantDb = _variantRepository.Create(variant);
+                if (!variantDb)
+                {
+                    return BadRequest("Variant didn't saved.");
+                }
+            }
+
+
+            return Ok(true);
 
             //Asset asset = new Asset();
             //asset.Category = Enums.AssetCategory.image;
