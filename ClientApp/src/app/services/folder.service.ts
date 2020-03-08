@@ -21,11 +21,6 @@ export class FolderService {
     ) {
     }
 
-    //ngOnInit() {
-    //    this.getAssets();
-    //}
-
-
     addFolder(folder: Folder): Observable<Folder> {
         folder.id = null;
         return this.http.post<any>(this.baseUrl + "/create-folder", folder, this.httpOptions)

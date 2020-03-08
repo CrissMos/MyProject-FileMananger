@@ -2,20 +2,30 @@
 	<p>folder detail</p>
 </div>
 <div class="row">
-	<div class="col-3">
-		<label>Img Name</label>
-	</div>
-	<div class="col-5">
-		<input class="form-control" #assetName />
-	</div>
-	<div class="col-4">
-		<button (click)="addAsset(assetName.value)">Add Asset</button>
-	</div>
-	<div class="row">
-		<div class="container" *ngIf="thumbnailAssets">
-			<div class="row" *ngFor="let a of thumbnailAssets">
-				<div class="col">{{a.name}}</div>
-				<div class="col">{{a.variantToDisplayLink}}</div>
+	<div class="col">
+		<div class="row">
+			<div class="col-3">
+				<label>Img Name</label>
+			</div>
+			<div class="col-5">
+				<input class="form-control" #assetName />
+			</div>
+			<div class="col-4">
+				<button (click)="addAsset(assetName.value)">Add Asset</button>
+			</div>
+		</div>
+		<div class="row">
+			<input type="file" #file (change)="onFileSelected(file.files)">
+			<!--<button type="button" (click)="onUpload()">Upload</button>-->
+		</div>
+		<div class="row">
+			<div class="container" *ngIf="thumbnailAssets">
+				<div class="row" *ngFor="let a of thumbnailAssets">
+					<div class="col">{{a.name}}</div>
+					<div class="col">
+						<img src="{{a.variantToDisplayLink}}">
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

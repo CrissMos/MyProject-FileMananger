@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Asset } from '../models/asset.model';
 import { AssetCategory } from '../models/assetCategory.enum';
 import { AssetService } from '../Services/asset.service';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'folder-detail',
@@ -20,6 +21,8 @@ export class FolderDetailComponent {
     };
 
     thumbnailAssets: Asset[] = [];
+
+    selectedFile: File = null;
 
     constructor(
         private route: ActivatedRoute,
@@ -54,6 +57,21 @@ export class FolderDetailComponent {
             .subscribe(data => {
                 this.thumbnailAssets = data;
                 console.log(this.thumbnailAssets);
+            })
+    }
+
+    public onFileSelected(files) {
+        if (files.length === 0) {
+            return;
+        }
+
+        const formData = new FormData();
+
+        formData.append(files[0].name, files[0]);
+
+        this.assetService.upload(formData, this.id)
+            .subscribe(data => {
+                console.log(data);
             })
     }
 }

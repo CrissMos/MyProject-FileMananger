@@ -21,11 +21,6 @@ export class AssetService {
     ) {
     }
 
-    //ngOnInit() {
-    //    this.getAssets();
-    //}
-
-
     addAsset(asset: Asset): Observable<Asset> {
         asset.id = null;
         return this.http.post<any>(this.baseUrl + "/create", asset, this.httpOptions)
@@ -44,6 +39,13 @@ export class AssetService {
 
     getAssetsWithThumbnailView(folderId: string): Observable<any> {
         return this.http.get<Asset[]>(this.baseUrl + "/thumbnail-view/" + folderId).pipe(
+            tap(data => console.log(data)),
+            catchError(this.handleError)
+        );
+    }
+
+    upload(formData, folderId: string) {
+        return this.http.post<any>(this.baseUrl + "/upload/" + folderId, formData).pipe(
             tap(data => console.log(data)),
             catchError(this.handleError)
         );

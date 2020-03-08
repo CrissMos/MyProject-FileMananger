@@ -23,7 +23,7 @@ namespace MyProject.Services
 
         public Variant GetThumbnailByAssetId(Guid AssetId)
         {
-            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == Enums.VariantType.Thumbnail && v.Deleted == null).FirstOrDefault();
+            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == Enums.VariantType.Initial && v.Deleted == null).FirstOrDefault();
         }
 
         public bool Create(Variant variant)
