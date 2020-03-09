@@ -61,6 +61,7 @@ namespace MyProject.Controllers
             Variant variant = new Variant();
 
             variant.AssetId = assetDb.Id;
+
             variant.Type = Enums.VariantType.Initial;
 
             var storageConnectionString = _configuration["BlobConnection"];
@@ -169,7 +170,7 @@ namespace MyProject.Controllers
 
             foreach(ApiAsset a in apiAssets)
             {
-                var thumbnailVariant = _variantRepository.GetThumbnailByAssetId(a.Id.GetValueOrDefault());
+                var thumbnailVariant = _variantRepository.GetByAssetIdAndType(a.Id.GetValueOrDefault(), Enums.VariantType.Initial);
 
                 if(thumbnailVariant!=null)
                 {

@@ -21,9 +21,9 @@ namespace MyProject.Services
             return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Deleted == null).ToList();
         }
 
-        public Variant GetThumbnailByAssetId(Guid AssetId)
+        public Variant GetByAssetIdAndType(Guid AssetId, Enums.VariantType type)
         {
-            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == Enums.VariantType.Initial && v.Deleted == null).FirstOrDefault();
+            return _context.Variants.Include(v => v.Asset).Where(v => v.Asset.Id == AssetId && v.Type == type && v.Deleted == null).FirstOrDefault();
         }
 
         public bool Create(Variant variant)

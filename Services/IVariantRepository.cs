@@ -10,7 +10,7 @@ namespace MyProject.Services
 	{
 		IEnumerable<Variant> GetVariantsByAssetId(Guid AssetId);
 
-		Variant GetThumbnailByAssetId(Guid AssetId);
+		Variant GetByAssetIdAndType(Guid AssetId, Enums.VariantType type);
 
 		bool Create(Variant variant);
 	}

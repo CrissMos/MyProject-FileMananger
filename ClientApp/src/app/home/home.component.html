@@ -33,6 +33,7 @@
         <div class="container" *ngIf="assets">
             <div class="row" *ngFor="let a of assets">
                 <div class="col">{{a.name}}</div>
+                <img src="{{a.variantToDisplayLink}}">
             </div>
         </div>
     </div>
